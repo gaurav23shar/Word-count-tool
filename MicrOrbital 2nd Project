@@ -1,0 +1,21 @@
+def count_words(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+            word_count = len(content.split())
+            char_count = len(content)
+            line_count = content.count('\n') + 1  # Assuming the last line doesn't end with a newline character
+
+            print(f"Word count: {word_count}")
+            print(f"Character count: {char_count}")
+            print(f"Line count: {line_count}")
+
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    # Prompt the user to enter the file path
+    file_path = input("Enter the path to the text file: ")
+    count_words(file_path)
